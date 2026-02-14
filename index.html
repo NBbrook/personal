@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramo de Girasoles Interactivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="escena">
+        <div class="contenedor-ramo">
+            <img src="ramo.png" class="ramo-base" alt="Ramo">
+
+            <div class="girasol" onclick="seleccionarFlor(this, 'mensaje1.jpg', 'Eres la chica más hermosa que existe, el sol que ilumina mis días, la razón de mis sonrisas y el motivo de mis alegrías. Eres un cálido verano en medio de una realidad invernal...Te amo, princesa')" style="--id: 1;"></div>
+            <div class="girasol" onclick="seleccionarFlor(this, 'mensaje2.jpeg', 'Gracias por cada momento que me has regalado; eres lo mejor que me ha sucedido. Agradezco a la vida por haberte encontrado, porque sin ti me siento vacío, y contigo soy inmensamente feliz. Aunque estés lejos, te siento muy cerca de mi alma. Eres lo más importante en mi existencia… eres toda mi vida.')" style="--id: 2;"></div>
+            <div class="girasol" onclick="seleccionarFlor(this, 'mensaje3.jpeg', 'Nunca dejes de brillar, porque eres espectacular y nada te supera. Eres un premio en la vida, y conocerte es un privilegio que pocos tienen la fortuna de disfrutar. Nunca dejes de creer en ti misma, nunca olvides que te quiero, que te espero y que confío en ti....Siempre te amaré')" style="--id: 3;"></div>
+            <div class="girasol" onclick="seleccionarFlor(this, 'mensaje4.jpeg', 'Estar a tu lado es lo mejor que me ha pasado; jamás te olvidaré. Cuando estoy contigo, todo se llena de alegría, y tu presencia ahuyenta la soledad. Si algún día te pierdo, te llevarás los últimos latidos de mi corazón, porque eres todo para mí y lo daría todo por ti, Si conocerte fue un error, entonces eres mi error favorito, el único que siempre querría cometer. Eres la mejor amiga que pude tener… ¡mi pequeña, dulce y tierna hermana!')" style="--id: 4;"></div>
+            <div class="girasol" onclick="seleccionarFlor(this, 'mensaje5.jpeg', 'Si pudiera, estaría contigo en este instante; si pudiera, estaría contigo por siempre. Pero, al menos hoy, quiero que imagines que estoy a tu lado y que disfrutes cada momento con alegría. Diviértete tanto como puedas… y nunca olvides que te adoro con el alma, mi dulce tamalito')" style="--id: 5;"></div>
+        </div>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="cerrarFlor()">
+        <div class="contenedor-carta" onclick="event.stopPropagation()">
+            <img id="imagen-detalle" src="" alt="Mensaje">
+            <p id="texto-detalle"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
