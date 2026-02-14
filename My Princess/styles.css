@@ -1,0 +1,127 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    /* IMPORTANTE: Asegúrate de tener 'fondo.jpg' en tu carpeta */
+    background: url('fondo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Balanceo suave de todo el ramo */
+.contenedor-ramo {
+    position: relative;
+    width: 35vw; 
+    min-width: 300px;
+    animation: balanceoRamo 4s ease-in-out infinite alternate;
+}
+
+.ramo-base {
+    width: 100%;
+    position: relative;
+    z-index: 7;
+    pointer-events: none;
+}
+
+/* Configuración de los girasoles */
+.girasol {
+    position: absolute;
+    width: 40%; 
+    aspect-ratio: 1/1;
+    background: url('girasol.png') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s;
+    /* Movimiento de querer salir del ramo */
+    animation: flotarFlor 3s ease-in-out infinite alternate;
+}
+
+/* Posiciones dentro del ramo (Ajusta los % si es necesario) */
+.girasol:nth-child(2) { top: 20%; left: 5%; animation-delay: 0s; z-index: 9; }
+.girasol:nth-child(3) { top: 35%; left: 45%; animation-delay: 0.5s; }
+.girasol:nth-child(4) { top: 15%; left: 35%; animation-delay: 1s; z-index: 9; }
+.girasol:nth-child(5) { top: 38%; left: 22%; animation-delay: 1.5s; }
+.girasol:nth-child(6) { top: 15%; left: 58%; animation-delay: 2s; }
+
+@keyframes balanceoRamo {
+    from { transform: rotate(-3deg); }
+    to { transform: rotate(3deg); }
+}
+
+@keyframes flotarFlor {
+    from { transform: translateY(2) scale(1); }
+    to { transform: translateY(-15px) scale(1.08); }
+}
+
+/* Pantalla oscura (Overlay) */
+.overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.88);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+/* Contenedor principal del mensaje */
+.contenedor-carta {
+    width: 95%;
+    max-width: 800px; /* Aumentamos el ancho máximo para que quepan ambos */
+    display: flex;    /* Activa el modo lado a lado */
+    flex-direction: row; /* Alinea los hijos en fila */
+    align-items: center; /* Centra verticalmente imagen y texto */
+    justify-content: center;
+    gap: 30px;        /* Espacio de separación entre imagen y texto */
+    background: rgba(255, 255, 255, 0.1); /* Opcional: un fondo sutil */
+    padding: 20px;
+    border-radius: 20px;
+    animation: aparecer 0.5s ease-out;
+}
+
+/* Ajuste para la imagen */
+.contenedor-carta img {
+    width: 50%;       /* La imagen ocupa la mitad */
+    max-width: 400px;
+    border: 6px solid white;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Ajuste para el texto */
+#texto-detalle {
+    width: 50%;       /* El texto ocupa la otra mitad */
+    color: rgb(249, 253, 4);
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    font-size: 2rem; /* Ajusta el tamaño a tu gusto */
+    text-align: left;  /* Alineado a la izquierda para mejor lectura */
+    margin-top: 0;     /* Quitamos el margen superior anterior */
+    font-family: 'Segoe UI', sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes zoomCarta {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive para Celular */
+@media (max-width: 600px) {
+    .contenedor-ramo { width: 80vw; }
+    #texto-detalle { font-size: 1.1rem; }
+}
